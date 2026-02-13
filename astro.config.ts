@@ -1,4 +1,5 @@
 import { defineConfig, envField, fontProviders } from "astro/config";
+import rehypeExternalLinks from 'rehype-external-links';
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
@@ -33,6 +34,9 @@ export default defineConfig({
         transformerNotationDiff({ matchAlgorithm: "v3" }),
       ],
     },
+    rehypePlugins: [
+      [rehypeExternalLinks, { target: '_blank', rel: 'noopener noreferrer' }]
+    ]
   },
   vite: {
     // eslint-disable-next-line

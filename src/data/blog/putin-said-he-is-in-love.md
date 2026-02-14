@@ -8,11 +8,12 @@ featured: true
 draft: false
 tags:
   - Russia
-  - Putin
-  - War
   - Ukraine
-  - 普京
-  - Character
+  - Putin
+  - Russia-Ukraine-War
+  - Social-Stratification
+  - Social-Inequality
+  - Economic-Analysis
 timezone: Asia/Shanghai
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/cyber-chronicles-images/og/og-v1.png
 description: 20歲的士兵在死亡,73歲的普京在戀愛——俄烏戰爭下俄羅斯經濟與社會的全面分析

@@ -32,6 +32,14 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
       // @ts-expect-error — Missing types for @pagefind/default-ui package.
       const { PagefindUI } = await import("@pagefind/default-ui");
 
+      let converter: ((text: string) => string) | null = null;
+      try {
+        const OpenCC = await import("opencc-js");
+        converter = OpenCC.Converter({ from: "cn", to: "hk" });
+      } catch (e) {
+        if (import.meta.env.DEV) console.warn("Failed to load OpenCC", e);
+      }
+
       // Display warning inn dev mode
       if (import.meta.env.DEV) {
         pageFindSearch.innerHTML = `
@@ -48,13 +56,27 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
         showImages: false,
         showSubResults: true,
         processTerm: function (term: string) {
-          params.set("q", term); // Update the `q` parameter in the URL
+          const original = term.trim();
+          if (!original) return original;
+
+          let processed = original;
+          const hasChinese = /[\u4e00-\u9fff]/.test(original);
+          if (hasChinese && converter) {
+            try {
+              processed = converter(original);
+            } catch (e) {
+              if (import.meta.env.DEV) console.warn("簡轉繁（HK）失敗，使用原始詞:", original, e);
+            }
+          }
+
+          params.set("q", original); // Update the `q` parameter in the URL
           history.replaceState(history.state, "", "?" + params.toString()); // Push the new URL without reloading
 
           const backUrl = pageFindSearch?.dataset?.backurl;
           sessionStorage.setItem("backUrl", backUrl + "?" + params.toString());
 
-          return term;
+          // return term;
+          return processed;
         },
       });
 

@@ -13,5 +13,6 @@
       "strings": "off",
       "other": "off"
     }
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

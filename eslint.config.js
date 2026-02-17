@@ -11,6 +11,11 @@ export default [
         ...globals.browser,
         ...globals.node,
       },
+      parser: astroEslintParser,
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: [".astro"]
+      }
     },
   },
   { rules: { "no-console": "error" } },

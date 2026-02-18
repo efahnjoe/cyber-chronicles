@@ -5,6 +5,23 @@ title: "About"
 
 The 'Cyber Chronicles' specializes in collecting and documenting talented individuals and unique personalities from around the world, as well as local customs, covering multiple fields and ethnicities.
 
-# Tech Stack
+## Disclaimer
+
+The historical documents and materials compiled herein have been gathered from publicly available online sources. The collection is provided for informational and educational purposes only.
+
+Please note the following:
+
+1. **Source Origin**: All content is sourced from the internet and has not been independently verified for accuracy, authenticity, or completeness.
+2. **AI-Generated Content**: Portions of this compilation may have been generated or processed with the assistance of artificial intelligence. Users are urged to critically evaluate and corroborate information with authoritative historical sources.
+3. **Neutral Presentation**: This collection reflects no personal, political, or ideological stance by the compiler. It is presented solely as a neutral aggregation of historical texts.
+4. **Copyright & Fair Use**: The compiler claims no ownership over original works included. Attribution is provided in good faith where possible. Use is intended to comply with fair use/fair dealing principles for research and education. Copyright holders with concerns are invited to contact the compiler for amicable resolution.
+5. **No Warranty**: Materials are provided “as is,” without any warranties—express or implied—regarding accuracy, reliability, or suitability for any purpose.
+6. **Not Professional Advice**: This compilation does not constitute historical, legal, or academic advice. Consult qualified experts for specific inquiries.
+7. **External Links**: This compilation may include hyperlinks or references to third-party websites, archives, or digital repositories. These links are provided for convenience and informational purposes only. The compiler does not control, endorse, or assume responsibility for the content, accuracy, privacy practices, or availability of any external sites. Users access such third-party resources at their own risk.
+
+**The compiler assumes no responsibility for any errors, omissions, or consequences arising from the use of this material. Users are solely responsible for their interpretation and application of the content.**
+
+# Tools Used
 
 - **Main Framework**: [AstroPaper](https://github.com/satnaing/astro-paper)
+- **Editor**: [Obsidian](https://obsidian.md/)

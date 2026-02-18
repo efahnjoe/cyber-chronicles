@@ -1,7 +1,7 @@
 ---
 author: Efahn Joe
 pubDatetime: 2026-02-18T10:53:53Z
-modDatetime: 2026-02-18T12:00:00Z
+modDatetime:
 title: 日本「失去的30年」
 slug: japans-lost-30-years
 featured: true

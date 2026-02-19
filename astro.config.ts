@@ -1,6 +1,7 @@
 import { defineConfig, envField, fontProviders } from "astro/config";
 import rehypeExternalLinks from 'rehype-external-links';
 import tailwindcss from "@tailwindcss/vite";
+import { visualizer } from "rollup-plugin-visualizer";
 import sitemap from "@astrojs/sitemap";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
@@ -43,7 +44,7 @@ export default defineConfig({
     // @ts-ignore
     // This will be fixed in Astro 6 with Vite 7 support
     // See: https://github.com/withastro/astro/issues/14030
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), visualizer({ filename: 'stats.html' })],
     optimizeDeps: {
       exclude: ["@resvg/resvg-js"],
     },

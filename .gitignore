@@ -26,5 +26,8 @@ pnpm-debug.log*
 # pagefind
 public/pagefind
 
+# rollup-plugin-visualizer
+stats.html
+
 # obsidian
 .obsidian/

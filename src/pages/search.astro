@@ -18,6 +18,37 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
 </Layout>
 
 <script>
+  let converterPromise: Promise<((text: string) => string) | null> | null = null;
+  
+  async function getConverter() {
+    if (converterPromise) return converterPromise;
+
+    converterPromise = new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/opencc-js@1.0.5/dist/umd/full.min.js";
+      script.onload = () => {
+        let converter: ((text: string) => string) | null = null;
+        
+        try {
+          if (window.OpenCC) {
+            converter = window.OpenCC.Converter({ from: 'cn', to: 'tw' });
+          }
+        } catch (e) {
+          if(import.meta.env.DEV) console.warn('OpenCC Converter failed to initialize', e);
+        }
+
+        resolve(converter);
+      };
+      script.onerror = () => {
+        console.warn('Failed to load OpenCC from CDN, fallback to raw search.');
+        resolve(null);
+      };
+      document.head.appendChild(script);
+    });
+
+    return converterPromise;
+  }
+
   function initSearch() {
     const pageFindSearch: HTMLElement | null =
       document.querySelector("#pagefind-search");
@@ -32,13 +63,14 @@ const backUrl = SITE.showBackButton ? `${Astro.url.pathname}` : "/";
       // @ts-expect-error — Missing types for @pagefind/default-ui package.
       const { PagefindUI } = await import("@pagefind/default-ui");
 
-      let converter: ((text: string) => string) | null = null;
-      try {
-        const OpenCC = await import("opencc-js");
-        converter = OpenCC.Converter({ from: "cn", to: "hk" });
-      } catch (e) {
-        if (import.meta.env.DEV) console.warn("Failed to load OpenCC", e);
-      }
+      // let converter: ((text: string) => string) | null = null;
+      // try {
+      //   const OpenCC = await import("opencc-js");
+      //   converter = OpenCC.Converter({ from: "cn", to: "hk" });
+      // } catch (e) {
+      //   if (import.meta.env.DEV) console.warn("Failed to load OpenCC", e);
+      // }
+      const converter = await getConverter();
 
       // Display warning inn dev mode
       if (import.meta.env.DEV) {

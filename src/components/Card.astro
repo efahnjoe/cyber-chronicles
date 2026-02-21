@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@/utils/slugify";
 import { getPath } from "@/utils/getPath";
 import Datetime from "./Datetime.astro";
+import Author from "./Author.astro";
 
 type Props = {
   variant?: "h2" | "h3";
@@ -10,7 +11,7 @@ type Props = {
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ...props } = data;
+const { author, title, description, ...props } = data;
 ---
 
 <li class="my-6">
@@ -28,6 +29,9 @@ const { title, description, ...props } = data;
       {title}
     </Heading>
   </a>
-  <Datetime {...props} />
+  <div class:list={["flex items-center gap-x-4 opacity-80"]}>
+    <Datetime {...props} />
+    <Author {author} />
+  </div>
   <p>{description}</p>
 </li>

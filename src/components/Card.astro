@@ -30,7 +30,7 @@ const { author, title, description, ...props } = data;
     </Heading>
   </a>
   <div class:list={["flex items-center gap-x-4 opacity-80"]}>
-    <Datetime {...props} />
+    <Datetime showModtime={false} {...props} />
     <Author {author} />
   </div>
   <p>{description}</p>

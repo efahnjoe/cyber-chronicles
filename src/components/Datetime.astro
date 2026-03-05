@@ -14,6 +14,8 @@ type Props = {
   pubDatetime: string | Date;
   timezone?: string;
   modDatetime?: string | Date | null;
+  showPubtime?: boolean;
+  showModtime?: boolean;
 };
 
 const {
@@ -22,6 +24,8 @@ const {
   size = "sm",
   class: className = "",
   timezone: postTimezone,
+  showPubtime = true,
+  showModtime = true,
 } = Astro.props;
 
 /* ========== Formatted Datetime ========== */
@@ -45,19 +49,25 @@ const formattedModDate = modTime ? modTime.format("YYYY/MM/DD") : "";
     ]}
   />
   <div>
-    <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>
-      Pub:
-    </span>
-    <time
-      class:list={["text-sm", { "sm:text-base": size === "lg" }]}
-      datetime={pubTime.toISOString()}
-      title={pubTime.format("D MMMM YYYY")}
-    >
-      {formattedPubDate}
-    </time>
+    {
+      showPubtime && (
+        <>
+          <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>
+            Pub:
+          </span>
+          <time
+            class:list={["text-sm", { "sm:text-base": size === "lg" }]}
+            datetime={pubTime.toISOString()}
+            title={pubTime.format("D MMMM YYYY")}
+          >
+            {formattedPubDate}
+          </time>
+        </>
+      )
+    }
 
     {
-      isModified && modTime && (
+      isModified && modTime && showModtime && (
         <>
           <span class="text-sm">|</span>
 

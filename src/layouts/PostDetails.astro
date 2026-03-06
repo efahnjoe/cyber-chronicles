@@ -14,6 +14,7 @@ import { slugifyStr } from "@/utils/slugify";
 import IconChevronLeft from "@/assets/icons/IconChevronLeft.svg";
 import IconChevronRight from "@/assets/icons/IconChevronRight.svg";
 import { SITE } from "@/config";
+import Sources from "@/components/Sources.astro";
 
 type Props = {
   post: CollectionEntry<"blog">;
@@ -33,6 +34,7 @@ const {
   timezone,
   tags,
   hideEditPost,
+  sources,
 } = post.data;
 
 const { Content } = await render(post);
@@ -55,6 +57,8 @@ if (!ogImageUrl && SITE.dynamicOgImage) {
 const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
+
+const tagsMeta = tags ? tags.join(", ").replace(/-/g, " ") : "";
 
 const layoutProps = {
   title: `${title} | ${SITE.title}`,
@@ -89,6 +93,7 @@ const nextPost =
     id="main-content"
     class:list={["app-layout pb-12", { "mt-8": !SITE.showBackButton }]}
     data-pagefind-body
+    data-pagefind-meta={`tags: [${tagsMeta}]`}
   >
     <h1
       transition:name={slugifyStr(title.replaceAll(".", "-"))}
@@ -112,6 +117,8 @@ const nextPost =
       class="app-prose mt-8 w-full max-w-app prose-pre:bg-(--shiki-light-bg) dark:prose-pre:bg-(--shiki-dark-bg)"
     >
       <Content />
+
+      <Sources {sources} />
     </article>
 
     <hr class="my-8 border-dashed" />

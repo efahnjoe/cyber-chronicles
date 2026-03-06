@@ -12,6 +12,7 @@ const blog = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
+      readingTime: z.number().optional(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
       tags: z.array(z.string()).default(["others"]),
@@ -20,6 +21,11 @@ const blog = defineCollection({
       canonicalURL: z.string().optional(),
       hideEditPost: z.boolean().optional(),
       timezone: z.string().optional(),
+      sources: z
+        .array(
+          z.object({ org: z.string(), title: z.string(), url: z.string() })
+        )
+        .optional(),
     }),
 });
 

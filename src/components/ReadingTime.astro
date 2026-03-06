@@ -1,0 +1,35 @@
+---
+import IconClock from "@/assets/icons/IconClock.svg";
+
+type Props = {
+  readingTime?: number;
+  size?: "sm" | "lg";
+  class?: string;
+};
+
+const { readingTime, size = "sm", class: className = "" } = Astro.props;
+
+if (!readingTime || readingTime === 0) {
+  return null;
+}
+---
+
+<div
+  class:list={[
+    "flex items-center gap-x-2 text-sm opacity-80",
+    { "sm:text-base": size === "lg" },
+    className,
+  ]}
+  title="Readimg time"
+>
+  <span>
+    <IconClock
+      class:list={[
+        "inline-block size-6 min-w-5.5",
+        { "scale-90": size === "sm" },
+      ]}
+    />
+
+    {readingTime} min
+  </span>
+</div>

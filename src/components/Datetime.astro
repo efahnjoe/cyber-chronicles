@@ -14,6 +14,8 @@ type Props = {
   pubDatetime: string | Date;
   timezone?: string;
   modDatetime?: string | Date | null;
+  showPubtime?: boolean;
+  showModtime?: boolean;
 };
 
 const {
@@ -22,16 +24,21 @@ const {
   size = "sm",
   class: className = "",
   timezone: postTimezone,
+  showPubtime = true,
+  showModtime = true,
 } = Astro.props;
 
 /* ========== Formatted Datetime ========== */
-const isModified = modDatetime && modDatetime > pubDatetime;
+const pubTime = dayjs(pubDatetime).tz(postTimezone || SITE.timezone);
+const formattedPubDate = pubTime.format("YYYY/MM/DD"); // e.g., "2026-02-19"
 
-const datetime = dayjs(isModified ? modDatetime : pubDatetime).tz(
-  postTimezone || SITE.timezone
-);
+const isModified = modDatetime && dayjs(modDatetime).isAfter(pubDatetime);
 
-const date = datetime.format("D MMM, YYYY"); // e.g., '22 Mar, 2025'
+const modTime = isModified
+  ? dayjs(modDatetime).tz(postTimezone || SITE.timezone)
+  : null;
+
+const formattedModDate = modTime ? modTime.format("YYYY/MM/DD") : "";
 ---
 
 <div class:list={["flex items-center gap-x-2 opacity-80", className]}>
@@ -41,15 +48,50 @@ const date = datetime.format("D MMM, YYYY"); // e.g., '22 Mar, 2025'
       { "scale-90": size === "sm" },
     ]}
   />
-  {
-    isModified && (
-      <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>
-        Updated:
-      </span>
-    )
-  }
-  <time
-    class:list={["text-sm", { "sm:text-base": size === "lg" }]}
-    datetime={datetime.toISOString()}>{date}</time
-  >
+  <div>
+    {
+      showPubtime && (
+        <>
+          <span class:list={["text-sm", { "sm:text-base": size === "lg" }]}>
+            Pub:
+          </span>
+          <time
+            class:list={["text-sm", { "sm:text-base": size === "lg" }]}
+            datetime={pubTime.toISOString()}
+            title={pubTime.format("D MMMM YYYY")}
+          >
+            {formattedPubDate}
+          </time>
+        </>
+      )
+    }
+
+    {
+      isModified && modTime && showModtime && (
+        <>
+          <span class="text-sm">|</span>
+
+          <span
+            class:list={[
+              "text-sm text-amber-700 dark:text-amber-400",
+              { "sm:text-base": size === "lg" },
+            ]}
+          >
+            Upd:
+          </span>
+
+          <time
+            class:list={[
+              "text-sm text-amber-800 dark:text-amber-300",
+              { "sm:text-base": size === "lg" },
+            ]}
+            datetime={modTime.toISOString()}
+            title={modTime.format("D MMMM YYYY")}
+          >
+            {formattedModDate}
+          </time>
+        </>
+      )
+    }
+  </div>
 </div>

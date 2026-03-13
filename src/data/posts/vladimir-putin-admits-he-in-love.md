@@ -2,7 +2,7 @@
 author: Efahn Joe
 description: "A 20-year-old soldier is dying, 73-year-old Putin is in love — A comprehensive analysis of Russia's economy and society under the Russia-Ukraine war"
 draft: false
-featured: true
+featured: false
 modDatetime: 2026-03-06T19:46:37Z
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-11T00:29:36Z

@@ -2,7 +2,7 @@
 author: Efahn Joe
 description: From postwar miracle to bubble collapse and slow recovery — a complete record and in-depth analysis of Japan's "Lost 30 Years."
 draft: false
-featured: true
+featured: false
 modDatetime: 2026-03-06T22:18:34Z
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/cyber-chronicles-images/og/og-v1.png
 pubDatetime: 2026-02-18T10:53:53Z

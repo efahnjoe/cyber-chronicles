@@ -2,7 +2,7 @@
 author: Efahn Joe
 description: This document provides a comprehensive overview of the Russia-Ukraine War from its origins in 2014 through the current situation in 2026. All dates and events are based on verified international media reports and historical records.
 draft: false
-featured: true
+featured: false
 modDatetime: 2026-03-06T17:02:16Z
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-16T20:43:12Z

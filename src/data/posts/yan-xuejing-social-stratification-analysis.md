@@ -2,7 +2,7 @@
 author: Efahn Joe
 description: "A sociological and economic analysis of social stratification mechanisms behind the livestream incident involving actress Yan Xuejing, revealing China's social inequality through international comparisons and multidimensional economic data."
 draft: false
-featured: true
+featured: false
 modDatetime: 2026-03-06T22:09:42Z
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-11T22:58:19Z

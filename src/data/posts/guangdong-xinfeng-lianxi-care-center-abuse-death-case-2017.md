@@ -2,7 +2,7 @@
 author: Efahn Joe
 description: In 2017, a Guangdong care facility scandal — 20 deaths in 49 days — led to a death-reprieve sentence for the ringleader, life imprisonment for another, and accountability for 107 officials across multiple levels of government.
 draft: false
-featured: true
+featured: false
 modDatetime: 2026-03-06T19:07:27Z
 ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-18T19:20:49Z

@@ -4,7 +4,6 @@ description: This document provides a comprehensive overview of the Russia-Ukrai
 draft: false
 featured: false
 modDatetime: 2026-03-06T17:02:16Z
-ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-16T20:43:12Z
 readingTime: 15
 slug: major-events-in-the-russia-ukraine-war-from-2014-to-2026

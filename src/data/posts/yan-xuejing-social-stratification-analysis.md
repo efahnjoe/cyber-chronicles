@@ -4,7 +4,6 @@ description: "A sociological and economic analysis of social stratification mech
 draft: false
 featured: false
 modDatetime: 2026-03-06T22:09:42Z
-ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-11T22:58:19Z
 readingTime: 14
 slug: yan-xuejing-social-stratification-analysis

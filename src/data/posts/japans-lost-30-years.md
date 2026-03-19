@@ -4,7 +4,6 @@ description: From postwar miracle to bubble collapse and slow recovery — a com
 draft: false
 featured: false
 modDatetime: 2026-03-06T22:18:34Z
-ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/cyber-chronicles-images/og/og-v1.png
 pubDatetime: 2026-02-18T10:53:53Z
 readingTime: 22
 slug: japans-lost-30-years

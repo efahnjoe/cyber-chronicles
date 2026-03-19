@@ -4,7 +4,6 @@ description: China's 'Shopping Basket Program' — a 38-year national initiative
 draft: false
 featured: true
 modDatetime:
-ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-03-19T20:48:21Z
 readingTime: 14
 slug: chinas-shopping-basket-program

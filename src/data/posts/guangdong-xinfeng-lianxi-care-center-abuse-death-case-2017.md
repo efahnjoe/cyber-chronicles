@@ -4,7 +4,6 @@ description: In 2017, a Guangdong care facility scandal — 20 deaths in 49 days
 draft: false
 featured: false
 modDatetime: 2026-03-06T19:07:27Z
-ogImage: https://ifbvrtihxbemwddmpusw.supabase.co/storage/v1/object/public/images/og/og-v1.webp
 pubDatetime: 2026-02-18T19:20:49Z
 readingTime: 13
 slug: guangdong-xinfeng-lianxi-care-center-abuse-death-case-2017
